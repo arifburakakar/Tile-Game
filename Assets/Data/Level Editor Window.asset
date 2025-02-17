@@ -17,6 +17,6 @@ MonoBehaviour:
   TargetLayer: 2
   BoardSizes:
   - {x: 8, y: 8}
-  - {x: 9, y: 9}
+  - {x: 7, y: 7}
   - {x: 8, y: 8}
   FillerItems: []

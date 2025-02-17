@@ -145,7 +145,7 @@ public class LevelEditor : MonoBehaviour
 
         layers = new Dictionary<int, GameObject>();
         tileBoard = new Dictionary<Vector3Int, EditorTileHandler>();
-        grid = new Grid(boardSizes.Count);
+        grid = new Grid();
         
         for (int i = 0; i < boardSizes.Count; i++)
         {
@@ -158,7 +158,6 @@ public class LevelEditor : MonoBehaviour
                 {
                     Vector3Int index = new Vector3Int(x, y, i);
                     Vector3 position = new Vector3(x + cellSize + (-.5f * (i % 2)), y + cellSize + (- .5f * (i % 2)));
-                    //
                     EditorTileHandler tile = Instantiate(editorTilePrefab, position, Quaternion.identity, gridObject.transform);
                     tile.UpdateSortingLayer(i, gridSize.y - y);
                     tileBoard.Add(index, tile);

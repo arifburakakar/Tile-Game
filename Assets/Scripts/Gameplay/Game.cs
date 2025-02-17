@@ -1,4 +1,6 @@
-using System.Collections.Generic;using UnityEngine;
+using System.Collections.Generic;
+using UnityEditor.iOS;
+using UnityEngine;
 
 public partial class Game
 {
@@ -6,9 +8,9 @@ public partial class Game
     private Level level;
     private GameplayConfig gameplayConfig;
     private int boardActionCounter = 0;
-    private GameObject gameContainer;
+    private GameContainerProxy gameContainer;
 
-    public GameObject GameContainer => gameContainer;
+    public GameContainerProxy GameContainer => gameContainer;
     
     public Game(Level level)
     {
@@ -19,8 +21,7 @@ public partial class Game
     {
         gameplayConfig = GameManager.Instance.GameplayConfig;
         levelManager = LevelManager.Instance;
-        gameContainer = new GameObject("Game Container");
-        gameContainer.transform.SetParent(level.LevelObject.transform);
+        gameContainer = Object.Instantiate(Resources.Load<GameContainerProxy>("Game Container"), level.LevelObject.transform, true);
     }
 
     public void InitializeGame()
@@ -29,8 +30,9 @@ public partial class Game
         Main.Instance.MainFixedUpdate += FixedUpdateGame;
         Main.Instance.MainLateUpdate += LateUpdateGame;
         
-        InitializeInput();   
+        InitializeInput();
         CreateGrid();
+        InitializeHolder();
     }
 
     private void UpdateGame()

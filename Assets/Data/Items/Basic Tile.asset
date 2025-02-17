@@ -17,7 +17,7 @@ MonoBehaviour:
     OID:
       ObjectID: 1
       VariantID: 1
-    Item: {fileID: 5152371210854446937, guid: 8e9592e242c5b4d46aa0250b9bd82f4b, type: 3}
+    Item: {fileID: 5304111801307604992, guid: 38d2d80ca214a41ec9a8230a8766d9f6, type: 3}
     ItemLife: 1
     ItemImage: {fileID: 21300000, guid: 4121bed7864e247499773ad0d8887563, type: 3}
     WarmCount: 10
@@ -25,7 +25,7 @@ MonoBehaviour:
     OID:
       ObjectID: 1
       VariantID: 2
-    Item: {fileID: 5152371210854446937, guid: f6ac1874df645495880d18366ef2ad5f, type: 3}
+    Item: {fileID: 5304111801307604992, guid: 2c3c1db4f094040a5a53b2201daeb0fb, type: 3}
     ItemLife: 1
     ItemImage: {fileID: 21300000, guid: 69eeaf1260973421a9e9e07c6331a399, type: 3}
     WarmCount: 10
@@ -33,7 +33,7 @@ MonoBehaviour:
     OID:
       ObjectID: 1
       VariantID: 3
-    Item: {fileID: 5152371210854446937, guid: 731e5663b187649e78af2cc8a3045711, type: 3}
+    Item: {fileID: 5304111801307604992, guid: 4f964202f214344b0922762c301f9029, type: 3}
     ItemLife: 1
     ItemImage: {fileID: 21300000, guid: 15236c9b6abe84d0ea9b69114216714d, type: 3}
     WarmCount: 10
@@ -41,7 +41,7 @@ MonoBehaviour:
     OID:
       ObjectID: 1
       VariantID: 4
-    Item: {fileID: 5152371210854446937, guid: 731e5663b187649e78af2cc8a3045711, type: 3}
+    Item: {fileID: 5304111801307604992, guid: 526592df56cca45748589e9569ad376f, type: 3}
     ItemLife: 1
     ItemImage: {fileID: 21300000, guid: 58712cf29f00e4f5f85e576a20d977b9, type: 3}
     WarmCount: 10
@@ -49,7 +49,7 @@ MonoBehaviour:
     OID:
       ObjectID: 1
       VariantID: 5
-    Item: {fileID: 5152371210854446937, guid: 598f16b28041a45a5ab499f1a964d8d9, type: 3}
+    Item: {fileID: 5304111801307604992, guid: 3be294bb9bb4647779fac1b13d055a47, type: 3}
     ItemLife: 1
     ItemImage: {fileID: 21300000, guid: 28a9cfc0a78d64bf0a856a72963de683, type: 3}
     WarmCount: 10

@@ -6,16 +6,14 @@ public class Grid
     public Dictionary<Vector3Int, Cell> Cells;
     public int LayerCount = 0;
 
-    public Grid(int layerCount)
+    public Grid()
     {
         Cells = new Dictionary<Vector3Int, Cell>();
-        LayerCount = layerCount;
     }
 
-    public Grid(Dictionary<Vector3Int, Cell> cells, int layerCount)
+    public Grid(Dictionary<Vector3Int, Cell> cells)
     {
         Cells = cells;
-        LayerCount = layerCount;
     }
 
     public void AddCell(Vector3Int index, Cell cell)
@@ -23,18 +21,9 @@ public class Grid
         Cells.Add(index, cell);
     }
 
-    public Cell GetCell(int layer, Vector2Int index)
+    public Cell GetCell(Vector3Int index)
     {
-        
-        // en ustte varsa onu returnler her layerda get cell index degisebilir cunku her layerda center degisecek .5 offset degisecek 
-        
-        // en yukari layerdan asagiya dogru bakarak in her layer degisiminde 
-        // if (Cells[layer].TryGetValue(index, out Cell cell))
-        // {
-        //     return cell;
-        // }
-        //
-        return null;
+        return Cells.GetValueOrDefault(index);
     }
 
     public Vector2Int GetCellIndex(Vector2 position, float cellSize)
@@ -51,7 +40,7 @@ public class Cell
 {
     public OID OID;
     public Vector2 WorldPosition;
-    public int layer;
+    public int Layer;
     public Item Item;
     public bool HasItem => Item;
 
@@ -60,18 +49,32 @@ public class Cell
     public Cell(Vector2 worldPosition, int layer)
     {
         WorldPosition = worldPosition;
-        this.layer = layer;
+        Layer = layer;
     }
     
     public void SetCellItem(Item item)
     {
+        Item = item;
         item.SetCell(this);
     }
     
     public void RemoveCellItem()
     {
+        Item.Cell = null;
         Item = null;
         OID = null;
+    }
+
+
+    public void Blast(BlastType blastType)
+    {
+        if (Item != null)
+        {
+            if (Item.TryGetAbility(out BlastAbility blastAbility))
+            {
+                blastAbility.Blast(blastType);
+            }
+        }
     }
 
 }

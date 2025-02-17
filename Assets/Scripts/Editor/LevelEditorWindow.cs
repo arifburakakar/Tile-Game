@@ -174,6 +174,7 @@ public class LevelEditorWindow : ScriptableObject
         activeLevelData = new LevelData();
         activeLevelData.LevelType = LevelType;
         activeLevelData.GridData = new List<CellData>();
+        
         foreach (KeyValuePair<Vector3Int, Cell> cell in levelEditor.Grid.Cells)
         {
             CellData cellData = new CellData();

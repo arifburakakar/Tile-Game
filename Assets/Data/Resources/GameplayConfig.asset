@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e632591f740b470f9b09f6389a1918c4, type: 3}
   m_Name: GameplayConfig
   m_EditorClassIdentifier: 
+  ItemCollectMovementDuration: 30
+  ItemCollectMovementEase: 1
