@@ -23,7 +23,7 @@ public partial class Game
 
     private void OnTouchHold(Vector2 inputPosition)
     {
-        CheckSelectedItem(inputPosition);
+        
     }
 
     private void OnTouchRelease(Vector2 inputPosition)

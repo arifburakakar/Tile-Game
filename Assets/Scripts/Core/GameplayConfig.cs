@@ -7,5 +7,6 @@ public class GameplayConfig : ScriptableObject
     [Header("Holder")] 
     public float ItemCollectMovementSpeed;
     public float ItemMergeDuration = .2f;
+    public float ItemMergeDespawnDelay = .02f;
     public Ease ItemMergeEase = Ease.Linear;
 }

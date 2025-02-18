@@ -12,6 +12,7 @@ public partial class Game
     private Dictionary<Item, Vector2> itemTargets = new Dictionary<Item, Vector2>();
     private Vector2 leftPosition;
     private int slotCount = 7;
+    private string MergeParticle = "Merge Particle";
     
     private void InitializeHolder()
     {
@@ -25,8 +26,11 @@ public partial class Game
         
         int targetIndex = -1;
         int count = 0;
-        
-        if (holderItems.Count == 0) holderItems.Add(item);
+
+        if (holderItems.Count == 0)
+        {
+            holderItems.Add(item);
+        }
         else
         {
             for (int i = 0; i < holderItems.Count; i++)
@@ -59,16 +63,17 @@ public partial class Game
         List<Item> toRemove = new List<Item>();
         float delta = gameplayConfig.ItemCollectMovementSpeed * Time.deltaTime;
 
-        foreach (Item item in movingItems)
+        for (var i = 0; i < movingItems.Count; i++)
         {
+            var item = movingItems[i];
             if (!itemTargets.TryGetValue(item, out Vector2 target))
             {
                 continue;
             }
 
             item.transform.position = Vector2.MoveTowards(
-                item.transform.position, 
-                target, 
+                item.transform.position,
+                target,
                 delta
             );
 
@@ -79,8 +84,9 @@ public partial class Game
             }
         }
 
-        foreach (Item arrivedItem in toRemove)
+        for (var i = 0; i < toRemove.Count; i++)
         {
+            var arrivedItem = toRemove[i];
             movingItems.Remove(arrivedItem);
             arrivedItems.Add(arrivedItem);
             OnItemArrived();
@@ -123,14 +129,15 @@ public partial class Game
         List<List<Item>> groups = new List<List<Item>>();
         List<Item> currentGroup = new List<Item>();
 
-        foreach (Item item in holderItems)
+        for (var i = 0; i < holderItems.Count; i++)
         {
+            var item = holderItems[i];
             if (!arrivedItems.Contains(item))
             {
                 currentGroup.Clear();
                 continue;
             }
-            
+
             if (currentGroup.Count == 0 || item.OID.Equals(currentGroup[0].OID))
             {
                 currentGroup.Add(item);
@@ -146,19 +153,29 @@ public partial class Game
                 currentGroup.Clear();
             }
         }
+
         return groups;
     }
 
     private void RemoveGroups(List<List<Item>> groups)
     {
-        foreach (List<Item> group in groups)
+        for (var i = 0; i < groups.Count; i++)
         {
-            Vector3 centerPoint = group[1].transform.position;
+            MergeAnimation(groups, i);
+        }
+    }
 
-            foreach (Item item in group)
-            {
-                despawnItems.Add(item);
-                item.transform.DOMove(centerPoint, gameplayConfig.ItemMergeDuration).SetEase(gameplayConfig.ItemMergeEase).OnComplete(
+    private async void MergeAnimation(List<List<Item>> groups, int i)
+    {
+        List<Item> group = groups[i];
+        Vector3 centerPoint = group[1].transform.position;
+
+        for (var j = 0; j < group.Count; j++)
+        {
+            var item = group[j];
+            despawnItems.Add(item);
+            item.transform.DOMove(centerPoint, gameplayConfig.ItemMergeDuration)
+                .SetEase(gameplayConfig.ItemMergeEase).OnComplete(
                     () =>
                     {
                         holderItems.Remove(item);
@@ -166,7 +183,10 @@ public partial class Game
                         item.Despawn();
                         UpdateItemTargets();
                     });
-            }
         }
+
+        await Yield.WaitForSeconds(gameplayConfig.ItemMergeDuration);
+        
+        VFXManager.Instance.Play(MergeParticle, centerPoint);
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df6da90c65e42409c15d7c92701342c, type: 3}
   m_Name: SelectAbilityConfig
   m_EditorClassIdentifier: 
-  SelectScale: 1.25
-  SelectScaleDuration: 0.1
+  SelectScale: 1.15
+  SelectScaleDuration: 0.05
   SelectEase: 1
-  DeselectScaleDuration: 0.075
+  DeselectScaleDuration: 0.05

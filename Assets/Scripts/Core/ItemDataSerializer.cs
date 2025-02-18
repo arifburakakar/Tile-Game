@@ -15,6 +15,7 @@ public class ItemData
     public OID OID;
     public Item Item;
     public int ItemLife;
+    public string DestroyParticle;
     public Sprite ItemImage;
     public int WarmCount;
 }

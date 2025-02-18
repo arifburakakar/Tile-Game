@@ -13,6 +13,8 @@ public class Item : MonoBehaviour, IPoolable, IEquatable<Item>
     public Cell Cell;
     private int lives;
     [SerializeField] 
+    private string DestroyPartilce;
+    [SerializeField] 
     private SortingGroup sortingGroup;
     [SerializeField] 
     private float fadeAnimationDuration;
@@ -37,7 +39,7 @@ public class Item : MonoBehaviour, IPoolable, IEquatable<Item>
     {
         InitializeAbilities();
     }
-
+    
     private void CreateAbilities()
     {
         abilities = new List<IAbility>();
@@ -55,18 +57,19 @@ public class Item : MonoBehaviour, IPoolable, IEquatable<Item>
         }
     }
 
-    public bool TryGetAbility<T>(out T ability) where T : IAbility
+    public bool TryGetAbility<T>(out T  targetAbility) where T : IAbility
     {
-        foreach (IAbility a in abilities)
+        for (var i = 0; i < abilities.Count; i++)
         {
-            if (a is T matchedAbility)
+            var ability = abilities[i];
+            if (ability is T matchedAbility)
             {
-                ability = matchedAbility;
+                targetAbility = matchedAbility;
                 return true;
             }
         }
 
-        ability = default;
+        targetAbility = default;
         return false;
     }
 
@@ -93,16 +96,21 @@ public class Item : MonoBehaviour, IPoolable, IEquatable<Item>
         }
     }
 
-    protected void UpdateSortingGroup(int targetSortingOrder)
+    protected void SetSortingGroup(int targetSortingOrder)
     {
         sortingGroup.sortingOrder = targetSortingOrder;
+    }
+
+    public void UpdateSortingGroup(int amount)
+    {
+        sortingGroup.sortingOrder += amount;
     }
 
     public void SetCell(Cell cell)
     {
         Cell = cell;
         transform.position = cell.WorldPosition;
-        UpdateSortingGroup((cell.Layer + 1) * 10);
+        SetSortingGroup((cell.Layer + 1) * 10);
     }
 
     public void DecreaseLife(int decreaseAmount, BlastType blastType)
@@ -121,16 +129,11 @@ public class Item : MonoBehaviour, IPoolable, IEquatable<Item>
 
         Level activeLevel = levelManager.ActiveLevel;
         activeLevel.Game.BoardActionStart();
-
-        // if (DestroyPartilce != "")
-        // {
-        //     VFXManager.Instance.Play(DestroyPartilce, transform.position);
-        // }
-        //
-        // if (ExplodeSound != "")
-        // {
-        //     SFXManager.Instance.Play(ExplodeSound);
-        // }
+        
+        if (DestroyPartilce != "")
+        {
+            VFXManager.Instance.Play(DestroyPartilce, transform.position);
+        }
 
         Despawn();
 
@@ -141,7 +144,6 @@ public class Item : MonoBehaviour, IPoolable, IEquatable<Item>
     {
         
     }
-
 
     public void Despawn()
     {

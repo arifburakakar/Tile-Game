@@ -55,7 +55,7 @@ public partial class Main : MonoBehaviour
     {
         GameManager.CreateInstance();
         LevelManager.CreateInstance();
-
+        VFXManager.CreateInstance();
         // monosingleton
         UIManager uimanager = Instantiate(Resources.Load<UIManager>("UIManager"));
         uimanager.OnCreate();
@@ -65,6 +65,7 @@ public partial class Main : MonoBehaviour
     {
         GameManager.Instance.Initialize();
         LevelManager.Instance.Initialize();
+        VFXManager.Instance.Initialize();
         UIManager.Instance.Initialize();
     }
 }

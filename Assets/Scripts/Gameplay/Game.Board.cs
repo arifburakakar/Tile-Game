@@ -7,7 +7,6 @@ public partial class Game
 
     private Cell selectedCell;
     
-    // select item cache it
     private void TrySelectItem(Vector2 inputPosition)
     {
         selectedCell = null;
@@ -42,11 +41,6 @@ public partial class Game
         }
         
         BoardActionEnd();
-    }
-
-    private void CheckSelectedItem(Vector2 inputPosition)
-    {
-        
     }
     
     private void TryCollectItem(Vector2 inputPosition)
@@ -83,10 +77,9 @@ public partial class Game
         
         BoardActionStart();
         
-        
-        if(selectedItem.TryGetAbility(out SelectAbility ability) && ability.Selectable)
+        if(selectedItem.TryGetAbility(out SelectAbility targetAbility) && targetAbility.Selectable)
         {
-            ability.Deselect();
+            targetAbility.Collect();
         }
 
         selectedCell.RemoveCellItem();
@@ -139,3 +132,10 @@ public partial class Game
         return new Vector3Int(x, y, layer);
     }
 }
+
+/*
+ *ui menu level win level lose screens
+ * one obstacle
+ * level editor fixes
+ * new levels and tiles
+ */
