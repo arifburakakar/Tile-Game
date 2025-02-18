@@ -41,6 +41,6 @@ public partial class Game
 
     private Item GetItem(OID oid)
     {
-        return levelManager.PoolHandler.GetItem(oid);
+        return levelManager.GameItemPoolFactory.GetItem(oid);
     }
 }

@@ -37,7 +37,7 @@ public partial class Game
 
     private void UpdateGame()
     {
-        //Debug.Log(boardActionCounter);
+        UpdateHolderVisuals();
     }
 
     private void FixedUpdateGame()

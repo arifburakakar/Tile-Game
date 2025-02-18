@@ -88,15 +88,9 @@ public partial class Game
         {
             ability.Deselect();
         }
-        
-        if (!CanPlaceItemToHolder(selectedItem))
-        {
-            BoardActionEnd();
-            return;
-        }
-        
+
         selectedCell.RemoveCellItem();
-        PlaceItemToHolder(selectedItem);
+        SetItemToHolder(selectedItem);
         SetBoardItemsAvailable(inputPosition, selectedCell.Layer, true);
         TrySideBlast(targetCell, selectedCell.Layer);
         

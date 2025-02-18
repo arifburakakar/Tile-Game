@@ -8,7 +8,7 @@ public class LevelManager : SingletonGameSystem<LevelManager>
     public GameItemsConfig GameItemsConfig { get; private set; }
     public LevelsDataConfig LevelsDataConfig { get; private set; }
     
-    public PoolHandler PoolHandler { get; private set; }
+    public GameItemPoolFactory GameItemPoolFactory { get; private set; }
     public Level ActiveLevel => activeLevel;
 
     protected override void OnCreate()
@@ -16,13 +16,13 @@ public class LevelManager : SingletonGameSystem<LevelManager>
         base.OnCreate();
         LevelsDataConfig = Resources.Load<LevelsDataConfig>("LevelsDataConfig");
         GameItemsConfig = Resources.Load<GameItemsConfig>("GameItemsConfig");
-        PoolHandler = new PoolHandler();
+        GameItemPoolFactory = new GameItemPoolFactory();
     }
 
     protected override void OnInitialize()
     {
         base.OnInitialize();
-        PoolHandler.Initialize(GameItemsConfig);
+        GameItemPoolFactory.Initialize(GameItemsConfig);
     }
 
     public void LoadLevel()
@@ -36,7 +36,7 @@ public class LevelManager : SingletonGameSystem<LevelManager>
 
     public void UnloadLeveL()
     {
-        PoolHandler.Clear();
+        GameItemPoolFactory.Clear();
         activeLevel?.ClearLevel();
     }
 }

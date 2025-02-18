@@ -136,8 +136,13 @@ MonoBehaviour:
     VariantID: 1
   GFX: {fileID: 5254946049192736599}
   DisableRenderer: {fileID: 8141232075953788811}
+  MinBlastCap: 0
+  Lives: 1
   sortingGroup: {fileID: 6788918070103149939}
   animation: {fileID: 0}
+  fadeAnimationDuration: 0.075
+  targetFadeAmount: 0.5
+  selectedAbilities: 
 --- !u!210 &6788918070103149939
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -165,7 +170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8245370943764841150
 Transform:
   m_ObjectHideFlags: 0
@@ -223,7 +228,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 1dc1276f73dad4479abd3aaad0bd2cc7, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.50980395}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

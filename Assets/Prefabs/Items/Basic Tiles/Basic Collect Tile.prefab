@@ -100,6 +100,18 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5152371210854446937, guid: 8e9592e242c5b4d46aa0250b9bd82f4b, type: 3}
+      propertyPath: abilityConfigs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152371210854446937, guid: 8e9592e242c5b4d46aa0250b9bd82f4b, type: 3}
+      propertyPath: abilityConfigs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2ffc826b555734bdd8bdaf38d3308368, type: 2}
+    - target: {fileID: 5152371210854446937, guid: 8e9592e242c5b4d46aa0250b9bd82f4b, type: 3}
+      propertyPath: abilityConfigs.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 58e9531dbcecb4188b23b3b7783eea3b, type: 2}
+    - target: {fileID: 5152371210854446937, guid: 8e9592e242c5b4d46aa0250b9bd82f4b, type: 3}
       propertyPath: selectedAbilities.Array.size
       value: 2
       objectReference: {fileID: 0}

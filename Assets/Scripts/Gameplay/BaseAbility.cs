@@ -1,3 +1,4 @@
+using UnityEngine;
 public abstract class BaseAbility : IAbility
 {
     protected Item item;
@@ -27,12 +28,3 @@ public abstract class BaseAbility : IAbility
         
     }
 }
-
-
-public enum Abilities
-{
-    NONE,
-    SELECT_ABILITY,
-    BLAST_ABILITY,
-}
-

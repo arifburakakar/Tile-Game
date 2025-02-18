@@ -14,7 +14,7 @@ public class BlastAbility : BaseAbility
     
     public void Blast(BlastType blastType)
     {
-        if ((int)blastType < (int)item.MinBlastCap)
+        if ((int)blastType < (int)MinBlastCap)
         {
             return;
         }

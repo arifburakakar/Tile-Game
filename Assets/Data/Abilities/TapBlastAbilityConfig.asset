@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e632591f740b470f9b09f6389a1918c4, type: 3}
-  m_Name: GameplayConfig
+  m_Script: {fileID: 11500000, guid: f0b4c41c11854f448c0cdf94d68da22b, type: 3}
+  m_Name: TapBlastAbilityConfig
   m_EditorClassIdentifier: 
-  ItemCollectMovementSpeed: 25
-  ItemMergeDuration: 0.3
-  ItemMergeEase: 26
+  BlastBlockLevel: 0
+  MinBlastCap: 2

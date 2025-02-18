@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoolHandler
+public class GameItemPoolFactory
 {
     public Dictionary<OID, GenericObjectPool<Item>> itemPools;
 
@@ -9,7 +9,7 @@ public class PoolHandler
     private GameItemsConfig gameItemsConfig;
     private GameplayConfig gameplayConfig;
 
-    public PoolHandler()
+    public GameItemPoolFactory()
     {
         itemPools = new Dictionary<OID, GenericObjectPool<Item>>();
     }

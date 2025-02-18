@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameplayConfig : ScriptableObject
 {
     [Header("Holder")] 
-    public float ItemCollectMovementDuration;
-    public Ease ItemCollectMovementEase;
+    public float ItemCollectMovementSpeed;
+    public float ItemMergeDuration = .2f;
+    public Ease ItemMergeEase = Ease.Linear;
 }
