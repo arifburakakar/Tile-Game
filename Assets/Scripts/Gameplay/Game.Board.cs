@@ -131,11 +131,25 @@ public partial class Game
         
         return new Vector3Int(x, y, layer);
     }
+
+    public bool IsBoardClear()
+    {
+        bool isBoardClear = true;
+
+        foreach (Cell cell in grid.Cells.Values)
+        {
+            if (cell.HasItem)
+            {
+                isBoardClear = false;
+                break;
+            }
+        }
+        
+        return isBoardClear;
+    }
 }
 
 /*
- *ui menu level win level lose screens
- * one obstacle
  * level editor fixes
  * new levels and tiles
  */

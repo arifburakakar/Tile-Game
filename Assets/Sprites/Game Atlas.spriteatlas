@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Game Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: f71026dc464114aeb922dc57a3747a1d, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 28a9cfc0a78d64bf0a856a72963de683, type: 3}
+  - {fileID: 21300000, guid: d8bb92f06de5544129679cda6d79b480, type: 3}
+  - {fileID: 21300000, guid: 69eeaf1260973421a9e9e07c6331a399, type: 3}
+  - {fileID: 21300000, guid: 58712cf29f00e4f5f85e576a20d977b9, type: 3}
+  - {fileID: 21300000, guid: 522f1a450e901455f99f7ea01c6e0888, type: 3}
+  - {fileID: 21300000, guid: 6330a376a622c4a43b42f132f61f5530, type: 3}
+  - {fileID: 21300000, guid: 4121bed7864e247499773ad0d8887563, type: 3}
+  - {fileID: 21300000, guid: 15236c9b6abe84d0ea9b69114216714d, type: 3}
+  - {fileID: 21300000, guid: 3a28d0fb25c9e48e3a640c6b5c815fea, type: 3}
+  - {fileID: 21300000, guid: 3d1f7f2f191904513859cf20107820bf, type: 3}
+  - {fileID: 21300000, guid: 1dc1276f73dad4479abd3aaad0bd2cc7, type: 3}
+  - {fileID: 21300000, guid: 3e23d3ff801084a6da8a8420ede4235d, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Black
+  - Tile 1
+  - Red
+  - Green
+  - Tile
+  - Holder
+  - Yellow
+  - Purple
+  - Obstacle
+  - Background-2
+  - Layer
+  - Tile-2
+  m_RenderDataMap: {}
+  m_Tag: Game Atlas
+  m_IsVariant: 0

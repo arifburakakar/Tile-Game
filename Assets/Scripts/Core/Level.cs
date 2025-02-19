@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Level
+public partial class Level
 {
     public LevelData LevelData { get; private set; }
     public LevelType LevelType { get; private set; }
@@ -19,12 +19,6 @@ public class Level
     public void InitializeLevel()
     {
         Game.InitializeGame();
-    }
-    
-    public void TryLevelEnd()
-    {
-        // try open win screen
-        // try open lose screen
     }
     
     public void ClearLevel()

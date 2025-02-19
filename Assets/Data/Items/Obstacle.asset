@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 707b7125490c4170963bbc65a41533d7, type: 3}
+  m_Name: Obstacle
+  m_EditorClassIdentifier: 
+  ItemData:
+  - ItemName: Obstacle
+    OID:
+      ObjectID: 2
+      VariantID: 1
+    Item: {fileID: 1176343051616201997, guid: 8e0444072e68240bbb7808a69aca2465, type: 3}
+    ItemLife: 0
+    DestroyParticle: Merge Particle
+    ItemImage: {fileID: 21300000, guid: 3a28d0fb25c9e48e3a640c6b5c815fea, type: 3}
+    WarmCount: 5

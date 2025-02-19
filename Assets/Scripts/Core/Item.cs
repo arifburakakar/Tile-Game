@@ -32,11 +32,13 @@ public class Item : MonoBehaviour, IPoolable, IEquatable<Item>
 
     public void Create()
     {
+        lives = Lives;
         CreateAbilities();
     }
 
     public void Spawn()
     {
+        Lives = lives;
         InitializeAbilities();
     }
     

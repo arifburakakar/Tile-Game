@@ -67,7 +67,22 @@ public partial class Game
     
     private void AllActionsEnd()
     {
-        level.TryLevelEnd();
+        if (level.IsLevelEnd)
+        {
+            return;
+        }
+        
+        if (isHolderFull)
+        {
+            level.IsLevelEnd = true;
+            UIManager.Instance.Open<UILevelFailedScreen>();
+        }
+
+        if (IsBoardClear() && holderItems.Count == 0)
+        { 
+            level.IsLevelEnd = true;
+            UIManager.Instance.Open<UILevelWinScreen>();
+        }
     }
 
     
