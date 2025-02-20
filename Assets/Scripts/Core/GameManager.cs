@@ -12,7 +12,6 @@ public class GameManager : SingletonGameSystem<GameManager>
         GameplayConfig = Resources.Load<GameplayConfig>("GameplayConfig");
     }
     
-    // fix for restart
     private void StartGameplay()
     {
         Main.Instance.SetInputEnable(true);
@@ -38,8 +37,7 @@ public class GameManager : SingletonGameSystem<GameManager>
         GameUtility.GCCollectDefault();
         IsMainActive = true;
     }
-
-    //with button
+    
     public void LoadGameplay()
     {
         UIManager.Instance.OpenGameplayPanel();

@@ -47,16 +47,4 @@ public partial class UIManager : MonoBehaviour
     {
         uiMainHudPanel.Close();
     }
-    
-    public void OnLevelStart()
-    {
-        uiGameplayHudPanel.OnLevelStart();
-        uiMainHudPanel.OnLevelStart(); // neden duzelt
-    }
-
-    public void OnLevelWin()
-    {
-        uiGameplayHudPanel.OnLevelWin();
-        uiMainHudPanel.OnLevelWin();
-    }
 }
