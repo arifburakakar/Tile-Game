@@ -6,6 +6,7 @@ public class UILevelWinScreen : UIScreen
 {
     public void OnTapToContinueClicked()
     {
-        
+        GameManager.Instance.GameplayCompleted(true);        
+        Close();
     }
 }

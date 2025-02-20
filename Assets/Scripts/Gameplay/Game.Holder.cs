@@ -103,6 +103,8 @@ public partial class Game
 
     private void UpdateItemTargets()
     {
+        int movingCount = movingItems.Count;
+
         itemTargets.Clear();
         movingItems.Clear();
         arrivedItems.Clear();
@@ -120,6 +122,11 @@ public partial class Game
             BoardActionStart();
             itemTargets.Add(holderItems[i], targetPos);
             movingItems.Add(item);
+        }
+
+        for (int i = 0; i < movingCount; i++)
+        {
+            BoardActionEnd();
         }
     }
 
@@ -206,9 +213,11 @@ public partial class Game
     {
         List<Item> group = groups[i];
         Vector3 centerPoint = group[1].transform.position;
+        
+        BoardActionStart();
+        
         for (var j = 0; j < group.Count; j++)
         {
-            BoardActionStart();
             var item = group[j];
             despawnItems.Add(item);
             item.transform.DOMove(centerPoint, gameplayConfig.ItemMergeDuration)
@@ -218,14 +227,15 @@ public partial class Game
                         holderItems.Remove(item);
                         despawnItems.Remove(item);
                         item.Despawn();
+                        UpdateItemTargets();
                     });
         }
 
         await Yield.WaitForSeconds(gameplayConfig.ItemMergeDuration);
         
-        BoardActionEnd();
-        UpdateItemTargets();
-        
         VFXManager.Instance.Play(MergeParticle, centerPoint);
+
+        await Yield.WaitForLateUpdate();
+        BoardActionEnd();
     }
 }

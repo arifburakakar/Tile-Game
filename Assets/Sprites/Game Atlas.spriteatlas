@@ -33,6 +33,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: f71026dc464114aeb922dc57a3747a1d, type: 3}
+    - {fileID: 102900000, guid: d8afd904c45c2487d8b140dda11235f7, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -46,6 +47,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 6330a376a622c4a43b42f132f61f5530, type: 3}
   - {fileID: 21300000, guid: 4121bed7864e247499773ad0d8887563, type: 3}
   - {fileID: 21300000, guid: 15236c9b6abe84d0ea9b69114216714d, type: 3}
+  - {fileID: 21300000, guid: f05628eb0ceb64b1fa75d0887584acdf, type: 3}
   - {fileID: 21300000, guid: 3a28d0fb25c9e48e3a640c6b5c815fea, type: 3}
   - {fileID: 21300000, guid: 3d1f7f2f191904513859cf20107820bf, type: 3}
   - {fileID: 21300000, guid: 1dc1276f73dad4479abd3aaad0bd2cc7, type: 3}
@@ -59,6 +61,7 @@ SpriteAtlas:
   - Holder
   - Yellow
   - Purple
+  - Background
   - Obstacle
   - Background-2
   - Layer

@@ -158,6 +158,7 @@ public class Item : MonoBehaviour, IPoolable, IEquatable<Item>
 
         LevelManager.Instance.GameItemPoolFactory.ReleaseItem(this);
         busyCounter = 0;
+        DisableRenderer.DOFade(0, 0);
     }
 
     public virtual void OnDespawn()

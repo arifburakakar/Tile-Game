@@ -147,22 +147,14 @@ public partial class Game
 
     public bool IsBoardClear()
     {
-        bool isBoardClear = true;
-
         foreach (Cell cell in grid.Cells.Values)
         {
             if (cell.HasItem)
             {
-                isBoardClear = false;
-                break;
+                return false;
             }
         }
-        
-        return isBoardClear;
+
+        return true;
     }
 }
-
-/*
- * level editor fixes
- * new levels and tiles
- */

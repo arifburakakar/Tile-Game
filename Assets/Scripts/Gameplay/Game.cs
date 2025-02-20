@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor.iOS;
 using UnityEngine;
 
 public partial class Game

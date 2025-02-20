@@ -26,8 +26,6 @@ public class BlastAbility : BaseAbility
         
         item.DecreaseLife(1, blastType);
         OnBlastAction?.Invoke();
-        
-        Debug.Log(blastType);
     }
 }
 
