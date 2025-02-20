@@ -11,6 +11,9 @@ public partial class Game
     {
         LevelData levelData = level.LevelData;
         grid = new Grid();
+        grid.BoardSizes = levelData.BoardSizes;
+        grid.BoardSizes.Add(Vector2Int.zero);
+        
         List<CellData> gridData = levelData.GridData;
         List<CellData> sortedGridData = gridData
             .OrderBy(cellData => cellData.Index.z)
@@ -28,14 +31,13 @@ public partial class Game
             gridItem.transform.SetParent(gameContainer.transform);
             cell.SetCellItem(gridItem);
             grid.Cells.Add(index, cell);
-
-
+            
             if (index.z + 1 > grid.LayerCount)
             {
                 grid.LayerCount = index.z + 1;
             }
 
-            SetBoardItemsAvailable(worldPosition, index.z, false);
+            SetBoardItemsAvailable(worldPosition, index.z - 1, false);
         }
     }
 

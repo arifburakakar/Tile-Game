@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelName: New Level
   LevelType: 0
-  TargetLayer: 2
+  TargetLayer: 1
   BoardSizes:
   - {x: 8, y: 8}
   - {x: 7, y: 7}
   - {x: 8, y: 8}
-  FillerItems: []
+  - {x: 7, y: 7}

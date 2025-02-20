@@ -6,7 +6,7 @@ using UnityEngine;
 public class LevelData
 {
     public LevelType LevelType;
-    public List<GeneratorsItemData> Fillers;
+    public List<Vector2Int> BoardSizes;
     public List<CellData> GridData;
 }
 

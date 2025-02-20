@@ -84,7 +84,7 @@ public partial class Game
 
         selectedCell.RemoveCellItem();
         SetItemToHolder(selectedItem);
-        SetBoardItemsAvailable(inputPosition, selectedCell.Layer, true);
+        SetBoardItemsAvailable(inputPosition, selectedCell.Layer - 1, true);
         TrySideBlast(targetCell, selectedCell.Layer);
         
         BoardActionEnd();
@@ -97,13 +97,18 @@ public partial class Game
             Vector2 targetPosition = targetCell.WorldPosition + sideDirections[i];
             Vector3Int targetIndex = WorldPosToGridIndex(targetPosition, currentLayer);
             Cell sideCell = grid.GetCell(targetIndex);
-
+            
             if (sideCell == null)
             {
                 return;
             }
 
+            bool previousSideCellHasItem = sideCell.HasItem;
             sideCell.Blast(BlastType.SIDE);
+            if (previousSideCellHasItem != sideCell.HasItem)
+            {
+                SetBoardItemsAvailable(sideCell.WorldPosition, sideCell.Layer - 1, true);
+            }
         }
     }
 
@@ -111,8 +116,13 @@ public partial class Game
     {
         for (int j = 0; j < bottomDirections.Length; j++)
         {
+            if (layer == -1)
+            {
+                continue;
+            }
+            
             Vector2 targetPosition = worldPosition + bottomDirections[j] * .5f;
-            Vector3Int targetIndex = WorldPosToGridIndex(targetPosition, layer - 1);
+            Vector3Int targetIndex = WorldPosToGridIndex(targetPosition, layer);
 
             if (grid.Cells.TryGetValue(targetIndex, out Cell bottomCell) && bottomCell.HasItem)
             {
@@ -123,12 +133,15 @@ public partial class Game
     
     private Vector3Int WorldPosToGridIndex(Vector2 worldPos, int layer)
     {
-        float cellSize = 1f;
-        float offset = .5f;
+        Vector2Int gridSize = grid.BoardSizes[layer];
         
-        int x = Mathf.FloorToInt((worldPos.x - (offset - .5f * (layer % 2))) / cellSize);
-        int y = Mathf.FloorToInt((worldPos.y - (offset - .5f * (layer % 2))) / cellSize);
-        
+        float offsetX = (gridSize.x - 1) * 0.5f;
+        float offsetY = (gridSize.y - 1) * 0.5f;
+        float adjustedX = (worldPos.x + offsetX);
+        float adjustedY = (worldPos.y + offsetY);
+        int x = Mathf.RoundToInt(adjustedX);
+        int y = Mathf.RoundToInt(adjustedY);
+
         return new Vector3Int(x, y, layer);
     }
 
